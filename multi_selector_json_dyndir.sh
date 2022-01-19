@@ -1,6 +1,6 @@
 #!/bin/bash
 
-authToken='286b195b860fdc9e0182bb04deff2b8e03b2732e'
+authToken='add token here'
 repoName=$1
 repoRelease=$2
 region=$3
