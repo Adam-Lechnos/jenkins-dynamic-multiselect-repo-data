@@ -2,6 +2,7 @@
 
 source 'auth.cfg with token(s)'
 
+authToken=$githubTokenGUI
 repoName=$1
 repoRelease=$2
 region=$3
@@ -76,7 +77,7 @@ then
 
  curl -s -I \
  -H "Authorization: bearer $authToken" \
- https://api.github.factset.com/graphql > /'add directory here'/multiselect_json_create/logs/cURLheader_$timestamp.log
+ https://api.github.factset.com/graphql > $logDir/multiselect_json_create/logs/cURLheader_$timestamp.log
 
 else
 
