@@ -12,6 +12,16 @@ Pull latest list of data from a GitHub repo directory for Jenkins Multi Select. 
 * Variable substitution which provides a repo name and release tag using [semantic versioning](https://semver.org/)
 * Variable substitution which provided a completion to lower level directories, such as environment and region for AWS
 
+#### Active Choices Reactive Parameter script
+```
+def proc = "/bin/bash /var/lib/jenkins/multiselect_json_create/multi_selector_json_dyndir.sh ${git_repo_url} ${git_release} ${aws_region} ${env_group}".execute()
+proc.waitFor()
+def output = proc.in.text
+def exitcode = proc.exitValue()
+def error = proc.err.text
+return output.tokenize()
+```
+
 #### Usage
 * Edit the script to include an `auth.cfg` for referencing a GitHub token assigned to the `gitauthtoken` variable. 
 * The 'auth.cfg' file should be part of the `.gitignore` config.
