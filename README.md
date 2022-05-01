@@ -1,5 +1,5 @@
 # jenkins-dynamic-multiselect-repo-data
-Pull latest list of data from a GitHub repo directory for Jenkins Multi Select. Selects a directory to parse based on the command's supplied positions parameters such as region and environment
+Pull latest list of data from a GitHub repo directory for Jenkins Active Choices Reactive Parameter. Selects a directory to parse based on the command's supplied positions parameters such as region and environment
 
 **Note:** An improved and cleaner version of [jenkins-multiselect-repo-data](../../../jenkins-multiselect-repo-data) which allows for multiple directories to be parsed based upon position parmeters
 
@@ -11,16 +11,6 @@ Pull latest list of data from a GitHub repo directory for Jenkins Multi Select. 
 * GitHub Access Token
 * Variable substitution which provides a repo name and release tag using [semantic versioning](https://semver.org/)
 * Variable substitution which provided a completion to lower level directories, such as environment and region for AWS
-
-#### Active Choices Reactive Parameter script
-```
-def proc = "/bin/bash /var/lib/jenkins/multiselect_json_create/multi_selector_json_dyndir.sh ${git_repo_url} ${git_release} ${aws_region} ${env_group}".execute()
-proc.waitFor()
-def output = proc.in.text
-def exitcode = proc.exitValue()
-def error = proc.err.text
-return output.tokenize()
-```
 
 #### Usage
 * Edit the script to include an `auth.cfg` for referencing a GitHub token assigned to the `gitauthtoken` variable. 
@@ -40,3 +30,12 @@ return output.tokenize()
 * Parse list of files from the FooBar repo's directory release v1.1.2
   * `multi_selector_json.sh git@github.com:Adam-Lechnos/FooBart.git v0.0.1 us-east-1 prod`
 
+#### Active Choices Reactive Parameter script
+```
+def proc = "/bin/bash /var/lib/jenkins/multiselect_json_create/multi_selector_json_dyndir.sh ${git_repo_url} ${git_release} ${aws_region} ${env_group}".execute()
+proc.waitFor()
+def output = proc.in.text
+def exitcode = proc.exitValue()
+def error = proc.err.text
+return output.tokenize()
+```
