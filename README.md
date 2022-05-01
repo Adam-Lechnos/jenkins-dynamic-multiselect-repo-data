@@ -1,5 +1,5 @@
 # jenkins-dynamic-multiselect-repo-data
-Pull latest list of data from a GitHub repo directory for Jenkins Multi Select. Selects a directory to parse based on the command's supplied positions parameters
+Pull latest list of data from a GitHub repo directory for Jenkins Multi Select. Selects a directory to parse based on the command's supplied positions parameters such as region and environment
 
 **Note:** An improved and cleaner version of [jenkins-multiselect-repo-data](../../../jenkins-multiselect-repo-data) which allows for multiple directories to be parsed based upon position parmeters
 
@@ -10,6 +10,7 @@ Pull latest list of data from a GitHub repo directory for Jenkins Multi Select. 
 * GitHub repos containing a dedicated directroy for parsing into a list
 * GitHub Access Token
 * Variable substitution which provides a repo name and release tag using [semantic versioning](https://semver.org/)
+* Variable substitution which provided a completion to lower level directories, such as environment and region for AWS
 
 #### Usage
 * Edit the script to include an `auth.cfg` for referencing a GitHub token assigned to the `gitauthtoken` variable. 
